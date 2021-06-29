@@ -7,7 +7,7 @@ data {
 parameters {
   real alpha;
   real beta;
-  real sigma;
+  real<lower=0> sigma;
 }
 
 model {
@@ -15,7 +15,7 @@ model {
   y ~ normal(alpha + beta * x, sigma);
 
   # priors
-  alpha ~ std_normal();
-  beta ~ std_normal();
-  sigma ~ std_normal();
+  alpha ~ normal(35, 15);
+  beta ~ lognormal(0.1, 1);
+  sigma ~ uniform(0, 20);
 }
