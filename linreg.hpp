@@ -17,7 +17,7 @@ using namespace stan::math;
 
 
 stan::math::profile_map profiles__;
-static constexpr std::array<const char*, 13> locations_array__ = 
+static constexpr std::array<const char*, 12> locations_array__ = 
 {" (found before start of program)",
  " (in '/home/js/programs/linreg-bayes/linreg.stan', line 8, column 2 to column 13)",
  " (in '/home/js/programs/linreg-bayes/linreg.stan', line 9, column 2 to column 12)",
@@ -25,7 +25,6 @@ static constexpr std::array<const char*, 13> locations_array__ =
  " (in '/home/js/programs/linreg-bayes/linreg.stan', line 15, column 2 to column 38)",
  " (in '/home/js/programs/linreg-bayes/linreg.stan', line 18, column 2 to column 25)",
  " (in '/home/js/programs/linreg-bayes/linreg.stan', line 19, column 2 to column 27)",
- " (in '/home/js/programs/linreg-bayes/linreg.stan', line 20, column 2 to column 25)",
  " (in '/home/js/programs/linreg-bayes/linreg.stan', line 2, column 2 to column 17)",
  " (in '/home/js/programs/linreg-bayes/linreg.stan', line 3, column 9 to column 10)",
  " (in '/home/js/programs/linreg-bayes/linreg.stan', line 3, column 2 to column 14)",
@@ -70,18 +69,18 @@ class linreg_model final : public model_base_crtp<linreg_model> {
       pos__ = std::numeric_limits<int>::min();
       
       pos__ = 1;
-      current_statement__ = 8;
+      current_statement__ = 7;
       context__.validate_dims("data initialization","N","int",
            std::vector<size_t>{});
       N = std::numeric_limits<int>::min();
       
-      current_statement__ = 8;
+      current_statement__ = 7;
       N = context__.vals_i("N")[(1 - 1)];
-      current_statement__ = 8;
+      current_statement__ = 7;
       check_greater_or_equal(function__, "N", N, 1);
-      current_statement__ = 9;
+      current_statement__ = 8;
       validate_non_negative_index("x", "N", N);
-      current_statement__ = 10;
+      current_statement__ = 9;
       context__.validate_dims("data initialization","x","double",
            std::vector<size_t>{static_cast<size_t>(N)});
       x__ = Eigen::Matrix<double, -1, 1>(N);
@@ -89,22 +88,22 @@ class linreg_model final : public model_base_crtp<linreg_model> {
       
       {
         std::vector<local_scalar_t__> x_flat__;
-        current_statement__ = 10;
+        current_statement__ = 9;
         x_flat__ = context__.vals_r("x");
-        current_statement__ = 10;
+        current_statement__ = 9;
         pos__ = 1;
-        current_statement__ = 10;
+        current_statement__ = 9;
         for (int sym1__ = 1; sym1__ <= N; ++sym1__) {
-          current_statement__ = 10;
+          current_statement__ = 9;
           assign(x, x_flat__[(pos__ - 1)],
             "assigning variable x", index_uni(sym1__));
-          current_statement__ = 10;
+          current_statement__ = 9;
           pos__ = (pos__ + 1);
         }
       }
-      current_statement__ = 11;
+      current_statement__ = 10;
       validate_non_negative_index("y", "N", N);
-      current_statement__ = 12;
+      current_statement__ = 11;
       context__.validate_dims("data initialization","y","double",
            std::vector<size_t>{static_cast<size_t>(N)});
       y__ = Eigen::Matrix<double, -1, 1>(N);
@@ -112,16 +111,16 @@ class linreg_model final : public model_base_crtp<linreg_model> {
       
       {
         std::vector<local_scalar_t__> y_flat__;
-        current_statement__ = 12;
+        current_statement__ = 11;
         y_flat__ = context__.vals_r("y");
-        current_statement__ = 12;
+        current_statement__ = 11;
         pos__ = 1;
-        current_statement__ = 12;
+        current_statement__ = 11;
         for (int sym1__ = 1; sym1__ <= N; ++sym1__) {
-          current_statement__ = 12;
+          current_statement__ = 11;
           assign(y, y_flat__[(pos__ - 1)],
             "assigning variable y", index_uni(sym1__));
-          current_statement__ = 12;
+          current_statement__ = 11;
           pos__ = (pos__ + 1);
         }
       }
@@ -176,8 +175,6 @@ class linreg_model final : public model_base_crtp<linreg_model> {
         lp_accum__.add(normal_lpdf<propto__>(alpha, 35, 15));
         current_statement__ = 6;
         lp_accum__.add(lognormal_lpdf<propto__>(beta, 0.1, 1));
-        current_statement__ = 7;
-        lp_accum__.add(uniform_lpdf<propto__>(sigma, 0, 20));
       }
     } catch (const std::exception& e) {
       stan::lang::rethrow_located(e, locations_array__[current_statement__]);

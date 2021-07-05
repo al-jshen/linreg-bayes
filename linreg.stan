@@ -17,5 +17,5 @@ model {
   # priors
   alpha ~ normal(35, 15);
   beta ~ lognormal(0.1, 1);
-  sigma ~ uniform(0, 20);
+  # sigma ~ uniform(0, 20);
 }
