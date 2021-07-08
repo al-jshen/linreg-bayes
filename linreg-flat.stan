@@ -14,8 +14,8 @@ model {
   # likelihood
   y ~ normal(alpha + beta * x, sigma);
 
-  # priors
-  alpha ~ normal(35, 15);
-  beta ~ lognormal(0.1, 1);
-  sigma ~ uniform(0, 20);
+  # if no explicit priors, stan uses flat priors on range of support
+  # alpha ~ normal(35, 15);
+  # beta ~ lognormal(0.1, 1);
+  # sigma ~ uniform(0, 20);
 }
